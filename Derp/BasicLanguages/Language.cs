@@ -43,9 +43,7 @@ namespace Derp
 
         public static Language Star(Language language)
         {
-            Lazy recursive;
-            
-            
+            return Lazy(Or(Epsilon, Sequence(language, Star(language))));
         }
     }
 }

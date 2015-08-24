@@ -37,7 +37,15 @@ namespace Derp
             Parser.PrintWhetherLanguageParsesInput(hello, "olleh");
 
             //star tests
-            Language xy = Language.Star(Language.Sequence(Language.Literal("xy")));
+            // OH NOES STAR IS BROKEN
+            // I get a stack overflow, which makes sense.
+            // The python implementation is:
+            /*
+                def rep(parser):
+                    r = lazy(lambda: alt(epsilon, seq(parser, r)))
+                    return r
+             */
+            // Language xy = Language.Star(Language.Sequence(Language.Literal("xy")));
 
             Console.ReadLine();
         }

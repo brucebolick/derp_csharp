@@ -9,15 +9,10 @@ namespace Derp
     class Lazy : Language
     {
         private Language _storedLanguage;
-        private Language _retrievedLanguage;
 
-        private void retrieveLanguage()
-        {
-            if (_retrievedLanguage == null)
-            {
-                _retrievedLanguage = _storedLanguage;
-            }
-        }
+        private Func<bool> _nullable;
+        private Func<char, Language> _derive;
+        private Func<string> _toString = () => { return ("(...)"); };
 
         public Lazy(Language storedLanguage)
         {
@@ -26,22 +21,23 @@ namespace Derp
 
         public override bool Nullable()
         {
-            retrieveLanguage();
-            return _retrievedLanguage.Nullable();
+            if (_nullable == null)
+                _nullable = _storedLanguage.Nullable;
+            return _nullable();
         }
 
         public override Language Derive(char inputCharacter)
         {
-            retrieveLanguage();
-            return _retrievedLanguage.Derive(inputCharacter);
+            if(_derive == null)
+                _derive = _storedLanguage.Derive;
+            return _derive(inputCharacter);
         }
 
         public override string ToString()
         {
-            if (_retrievedLanguage == null)
-                return "(...)";
-            else
-                return _retrievedLanguage.ToString();
+            if (_nullable != null || _derive != null)
+                _toString = _storedLanguage.ToString;
+            return _toString();
         }
 
     }

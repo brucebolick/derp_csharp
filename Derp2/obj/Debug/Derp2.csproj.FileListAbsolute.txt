@@ -1,6 +1,0 @@
-C:\derp_csharp\Derp2\bin\Debug\Derp2.exe.config
-C:\derp_csharp\Derp2\bin\Debug\Derp2.exe
-C:\derp_csharp\Derp2\bin\Debug\Derp2.pdb
-C:\derp_csharp\Derp2\obj\Debug\Derp2.csprojResolveAssemblyReference.cache
-C:\derp_csharp\Derp2\obj\Debug\Derp2.exe
-C:\derp_csharp\Derp2\obj\Debug\Derp2.pdb

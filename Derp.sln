@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Derp", "Derp\Derp.csproj", "{E5C92E5E-5665-43FD-8DB1-DF215D9E0876}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Derp2", "Derp2\Derp2.csproj", "{949988B6-08FD-48BF-A12E-D6A19BBEF0FC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{E5C92E5E-5665-43FD-8DB1-DF215D9E0876}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E5C92E5E-5665-43FD-8DB1-DF215D9E0876}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E5C92E5E-5665-43FD-8DB1-DF215D9E0876}.Release|Any CPU.Build.0 = Release|Any CPU
+		{949988B6-08FD-48BF-A12E-D6A19BBEF0FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{949988B6-08FD-48BF-A12E-D6A19BBEF0FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{949988B6-08FD-48BF-A12E-D6A19BBEF0FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{949988B6-08FD-48BF-A12E-D6A19BBEF0FC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

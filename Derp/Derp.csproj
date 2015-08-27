@@ -7,8 +7,8 @@
     <ProjectGuid>{949988B6-08FD-48BF-A12E-D6A19BBEF0FC}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Derp2</RootNamespace>
-    <AssemblyName>Derp2</AssemblyName>
+    <RootNamespace>Derp</RootNamespace>
+    <AssemblyName>Derp</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

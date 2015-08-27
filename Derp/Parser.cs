@@ -20,7 +20,7 @@ namespace Derp
             }
             else
             {
-                Console.WriteLine("no,  the language excludes the following: " + input);
+                Console.WriteLine("No,  the language excludes the following: " + input);
             }
         }
     }

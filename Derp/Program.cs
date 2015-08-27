@@ -6,7 +6,8 @@ namespace Derp
     {
         private static void Main(string[] args)
         {
-            RunRudimentaryTests();
+            Raining raining = new Raining();
+            //RunRudimentaryTests();
         }
 
         private static void RunRudimentaryTests()

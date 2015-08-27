@@ -8,32 +8,37 @@ namespace Derp2
 {
     class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
-            var a = Language.Literal("a");
-            
+            RunRudimentaryTests();
+        }
+
+        private static void RunRudimentaryTests()
+        {
+            var a = LanguageBase.Literal("a");
+
             Console.WriteLine(Parser.Parses(a, "a"));   //True
             Console.WriteLine(Parser.Parses(a, "b"));   //False
 
-            var b = Language.Literal("b");
-            var or = Language.Or(a, b);
-            
+            var b = LanguageBase.Literal("b");
+            var or = LanguageBase.Or(a, b);
+
             Console.WriteLine(Parser.Parses(or, "a"));  //True
             Console.WriteLine(Parser.Parses(or, "b"));  //True
             Console.WriteLine(Parser.Parses(or, "c"));  //False, only accepts "a" or "b"
 
-            var hello = Language.Literal("hello");
+            var hello = LanguageBase.Literal("hello");
 
             Console.WriteLine(Parser.Parses(hello, "hello"));   //True
             Console.WriteLine(Parser.Parses(hello, "goodbye")); //False, only "hello" accepted by 'hello' language
 
-            var space = Language.Literal(" ");
-            var goodbye = Language.Literal("goodbye");
+            var space = LanguageBase.Literal(" ");
+            var goodbye = LanguageBase.Literal("goodbye");
 
-            var helloGoodbye = Language.Sequence(hello, space, goodbye);
-            var goodbyeHello = Language.Sequence(goodbye, space, hello);
+            var helloGoodbye = LanguageBase.Sequence(hello, space, goodbye);
+            var goodbyeHello = LanguageBase.Sequence(goodbye, space, hello);
 
-            var eitherOrderOrA = Language.Or(helloGoodbye, goodbyeHello, a);
+            var eitherOrderOrA = LanguageBase.Or(helloGoodbye, goodbyeHello, a);
 
             Console.WriteLine(Parser.Parses(eitherOrderOrA, "hello goodbye"));  //True
             Console.WriteLine(Parser.Parses(eitherOrderOrA, "goodbye hello"));  //True
@@ -41,18 +46,17 @@ namespace Derp2
             Console.WriteLine(Parser.Parses(eitherOrderOrA, "goodbyehello"));   //False, missing space
             Console.WriteLine(Parser.Parses(eitherOrderOrA, "aa"));             //False, only single a accepted by 'a' language
 
-            var aStar = Language.Repeat(a);
+            var aStar = LanguageBase.Repeat(a);
             Console.WriteLine(Parser.Parses(aStar, ""));
             Console.WriteLine(Parser.Parses(aStar, "a"));
             Console.WriteLine(Parser.Parses(aStar, "aa"));
             Console.WriteLine(Parser.Parses(aStar, "aaa"));
             Console.WriteLine(Parser.Parses(aStar, "aaba"));
 
-            var orStar = Language.Repeat(or);
+            var orStar = LanguageBase.Repeat(or);
             Console.WriteLine(Parser.Parses(orStar, "aaba"));
 
             Console.ReadLine();
-
         }
     }
 }

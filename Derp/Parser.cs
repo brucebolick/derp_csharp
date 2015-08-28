@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace Derp
 {
-    public class Parser
+    public static class Parser
     {
         public static bool Parses(Language langauge, string input)
         {

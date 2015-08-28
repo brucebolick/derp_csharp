@@ -9,18 +9,14 @@ namespace Derp
         public abstract bool Nullable();
         public abstract Language Derive(char inputCharacter);
 
-        protected static Language Language(Func<LanguageBase> function)
+        public static Language Language(Func<LanguageBase> function)
         {
             return new Language(function);
         }
 
-        protected static readonly Language Empty = Language(() => new Empty());
+        public static Language Empty = Language(() => new Empty());
 
-        protected static readonly Language Epsilon = Language(() => new Epsilon());
-
-        public static Dictionary<char, Dictionary<LanguageBase, LanguageBase>> DerivativeCache = new Dictionary<char, Dictionary<LanguageBase, LanguageBase>>();
-
-        public static Dictionary<LanguageBase, bool> NullableCache = new Dictionary<LanguageBase, bool>(); 
+        public static Language Epsilon = Language(() => new Epsilon());
 
         public static Language Literal(string inputString)
         {

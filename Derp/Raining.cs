@@ -40,6 +40,8 @@ namespace Derp
             Parser.DisplayParseResult(Language, "It's raining cats and dogs.");
             Parser.DisplayParseResult(Language, "It's raining chocolate, cats and fury.");
             Parser.DisplayParseResult(Language, "It's raining puppies and acid rain.");
+            Console.WriteLine("Cache misses: " + Cache.CacheMiss);
+            Console.WriteLine("Cache hits: " + Cache.CacheHit);
             Console.ReadLine();
         }
 

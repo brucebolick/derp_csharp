@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cache\Cache.cs" />
     <Compile Include="LanguageBase\Empty.cs" />
     <Compile Include="LanguageBase\Epsilon.cs" />
     <Compile Include="Language.cs" />

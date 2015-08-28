@@ -4,12 +4,6 @@ namespace Derp
 {
     public class Language : Lazy<LanguageBase>
     {
-        public Language(Func<LanguageBase> function) : base(function)
-        {
-        }
-
-        public Language(LanguageBase languageBase) : base(() => languageBase)
-        {
-        }
+        public Language(Func<LanguageBase> function) : base(function) { }
     }
 }

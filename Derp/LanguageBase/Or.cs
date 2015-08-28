@@ -1,4 +1,8 @@
-﻿namespace Derp
+﻿using System;
+using System.Linq;
+using System.Runtime.CompilerServices;
+
+namespace Derp
 {
     public class Or : LanguageBase
     {
@@ -13,12 +17,33 @@
 
         public override bool Nullable()
         {
-            return _left.Value.Nullable() || _right.Value.Nullable();
+            if (!Cache.Nullable.ContainsKey(this))
+            {
+                Cache.CacheMiss++;
+                Cache.Nullable[this] = _left.Value.Nullable() || _right.Value.Nullable();
+            }
+            else
+            {
+                Cache.CacheHit++;
+            }
+            return Cache.Nullable[this];
         }
 
         public override Language Derive(char inputCharacter)
         {
-            return Language(() => new Or(_left.Value.Derive(inputCharacter), _right.Value.Derive(inputCharacter)));
+            var key = new Tuple<char, LanguageBase>(inputCharacter, this);
+
+            if (Cache.Derivative.ContainsKey(key))
+            {
+                Cache.CacheHit++;
+                return Cache.Derivative[key];
+            }
+
+            Cache.CacheMiss++;
+
+            Cache.Derivative[key] = Language(() => new Or(_left.Value.Derive(inputCharacter), _right.Value.Derive(inputCharacter)));
+
+            return Cache.Derivative[key];
         }
     }
 }

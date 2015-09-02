@@ -1,4 +1,5 @@
 ﻿using System;
+using System.CodeDom;
 using System.Linq;
 
 namespace Derp
@@ -21,6 +22,14 @@ namespace Derp
             else
             {
                 Console.WriteLine("No,  the language excludes the following: " + input);
+            }
+        }
+
+        public static void Assert(Func<bool> test, bool expected, string message = null)
+        {
+            if (!expected == test())
+            {
+                throw new Exception(message ?? "Test Failed");
             }
         }
     }

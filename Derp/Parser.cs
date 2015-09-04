@@ -1,5 +1,4 @@
 ﻿using System;
-using System.CodeDom;
 using System.Linq;
 
 namespace Derp
@@ -25,9 +24,9 @@ namespace Derp
             }
         }
 
-        public static void Assert(Func<bool> test, bool expected, string message = null)
+        public static void Assert(bool actual, bool expected, string message = null)
         {
-            if (!expected == test())
+            if (expected != actual)
             {
                 throw new Exception(message ?? "Test Failed");
             }

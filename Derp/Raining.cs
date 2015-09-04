@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Threading;
 
 namespace Derp
 {
@@ -27,9 +26,12 @@ namespace Derp
         public void RainingTest()
         {
             var ThingsItCanRain = AnyOfStrings("real rain", "cats", "dogs", "men", "tacos", "chocolate", "acid rain",
-                "fury");
+                "fury", "puppies");
 
-            var SequenceJoiners = AnyOfStrings(", ", " and ", ", and ");
+            var SequenceJoiners = AnyOfStrings(
+                ", "        , 
+                " and "     , 
+                ", and "    );
                 
             var SequenceOfThingsItCanRain = Or(
                 Epsilon,

@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.InteropServices;
-using Microsoft.Win32.SafeHandles;
 
 namespace Derp
 {
@@ -65,28 +62,10 @@ namespace Derp
             return Or(strings.Select(Literal).ToArray());
         }
 
-        public static Language AThroughZ = Or(
-            Literal("a"), Literal("g"), Literal("m"), Literal("s"),
-            Literal("b"), Literal("h"), Literal("n"), Literal("t"),
-            Literal("c"), Literal("i"), Literal("o"), Literal("u"),
-            Literal("d"), Literal("j"), Literal("p"), Literal("v"),
-            Literal("e"), Literal("k"), Literal("q"), Literal("w"),
-            Literal("f"), Literal("l"), Literal("r"), Literal("x"),
-            Literal("y"), Literal("z"), Literal("A"), Literal("B"),
-            Literal("C"), Literal("I"), Literal("O"), Literal("U"),
-            Literal("D"), Literal("J"), Literal("P"), Literal("V"),
-            Literal("E"), Literal("K"), Literal("Q"), Literal("W"),
-            Literal("F"), Literal("L"), Literal("R"), Literal("X"),
-            Literal("G"), Literal("M"), Literal("S"), Literal("Y"),
-            Literal("H"), Literal("N"), Literal("T"), Literal("Z")
-            );
+        public static Language AThroughZ = AnyOfCharacters("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
+        public static Language Digit = AnyOfCharacters("0123456789");
+        public static Language NonZeroDigit = AnyOfCharacters("123456789");
 
-        public static Language Digit = Or(Literal("0"), Literal("1"), Literal("2"), Literal("3"), Literal("4"),
-            Literal("5"), Literal("6"), Literal("7"), Literal("8"), Literal("9"));
-
-        public static Language DigitOneThroughNine = Or(Literal("1"), Literal("2"), Literal("3"), Literal("4"),
-            Literal("5"), Literal("6"), Literal("7"), Literal("8"), Literal("9"));
-
-        public static Language Integer = Sequence(ZeroOrOne(Literal("-")), DigitOneThroughNine, Repeat(Digit));
+        public static Language Integer = Sequence(ZeroOrOne(Literal("-")), NonZeroDigit, Repeat(Digit));
     }
 }
